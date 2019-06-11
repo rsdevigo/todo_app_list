@@ -1,0 +1,133 @@
+:root {
+  --fontheader: 'Roboto', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f6;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  background-color: #8dc63f;  
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  font-family: var(--fontheader);
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+}
+
+main {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.taskinput {
+  border-width: 1px;
+  border-color: rgb(225, 225, 225);
+  border-style: solid;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 8.6px 1.4px rgba(0, 0, 0, 0.05);
+  height: 56px;
+  width: 220px;
+  font-family: var(--fontheader);
+  font-size: 28px;
+  font-weight: 400; 
+}
+
+.taskbutton {
+  border-width: 0px;
+  background-color: rgb(141, 198, 63);
+  box-shadow: 0px 3px 8.6px 1.4px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  height: 56px;
+  width: 60px;
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  line-height: 56px;
+  display:inline-block;
+}
+
+#tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.task {
+  width: 100%;
+  margin: 14px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task a {
+  display: block;
+  height: 56px;
+  width: 60px;
+  background-color: #8dc63f;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: rgb(141, 198, 63);
+  box-shadow: 0px 3px 8.6px 1.4px rgba(0, 0, 0, 0.05);
+}
+
+.task a > img {
+  height: 28px;
+}
+
+.taskdescription {
+  width: 160px;
+  background: #ffffff;
+  height: 56px;
+  line-height: 56px;
+}
+
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+  width: 60px;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -79px;
+  background   : url('checks_x.png') no-repeat 0 0;
+  line-height  : 56px;
+  height: 56px;
+  width: 60px;
+}
+
+input[type=checkbox]:not(old):checked + label{
+  background-position : 0 -56px;
+}
