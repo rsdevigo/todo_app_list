@@ -106,8 +106,8 @@ form {
 .taskdescription {
   width: 160px;
   background: #ffffff;
-  height: 56px;
   line-height: 56px;
+  padding: 2px;
 }
 
 input[type=checkbox]:not(old),

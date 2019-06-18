@@ -1,19 +1,21 @@
-var tasks = []; //localStorage, firebase, mysql
+var sequence = 0;
 
+var tasks = [];
 
+draw();
 
-function addTask () {
+function addTask() {
   var task = {
     description: document.getElementById('task').value,
-    isdone: false,
-    id: tasks.length
+    isDone: false,
+    id: sequence,
   }
-
+  sequence++;
   tasks.push(task);
-  render();
+  draw();
 }
 
-function render () {
+function draw() {
   document.getElementById('tasks').innerHTML = '';
   for (var i = 0; i < tasks.length; i++) {
     var task = tasks[i];
@@ -23,6 +25,7 @@ function render () {
     var taskCheckBox = document.createElement('input');
     taskCheckBox.type = 'checkbox';
     taskCheckBox.id = task.id;
+    taskCheckBox.checked = task.isDone;
     var taskLabel = document.createElement('label');
     taskLabel.for = task.id;
     taskLabel.className = 'container';
@@ -30,7 +33,11 @@ function render () {
     taskDescription.className = 'taskdescription';
     taskDescription.innerHTML = task.description;
     var taskAction = document.createElement('a');
+    taskAction.href = "#";
+    taskAction.onclick = removeTask;
+    taskAction.id = task.id;
     var taskImg = document.createElement('img');
+    taskImg.id = task.id;
     taskImg.src = 'images/trash.png';
     taskImg.alt = 'Remover tarefa';
     taskAction.appendChild(taskImg);
@@ -42,3 +49,14 @@ function render () {
   }
 }
 
+function removeTask (event) {
+  var taskId = event.target.id;
+  var taskIndex = tasks.findIndex(function(task){
+    if (task.id == taskId) {
+      return true;
+    }
+    return false;
+  });
+  tasks.splice(taskIndex, 1);
+  draw();
+}
